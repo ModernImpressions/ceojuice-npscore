@@ -14,19 +14,22 @@ if ($readjson === false) {
     $data = json_decode($readjson, true);
     $thisCompany = array(); //array to hold this companies data
     $referenceCompanies = array();  //array to hold the reference data company names
+    $referenceCount = 0; //counter for the reference companies
     //Parse the comment
     foreach ($data as $businessScore) {
         if ($businessScore["companyName"] != "CEO Juice Client average") { //if the company is not the CEO Juice Client average
             if ($businessScore["ReferenceData"] == true) { //if the company is a reference data company
-                $referenceCompanies[] = array( //add the company to the reference data array
+                $referenceCompanies[$referenceCount++] = array( //add the company to the reference data array
                     "companyName" => $businessScore["companyName"], //add the company name
                     "companyScore" => $businessScore["npsScore"], //add the company score
                     "companyRank" => $businessScore["npsRank"] //add the company rank
                 );  //end of array
             } elseif ($businessScore["ReferenceData"] == false) { //if the company is not a reference data company then assume it is this company
-                $thisCompany["companyName"] = $businessScore["companyName"]; //add the company name
-                $thisCompany["npsScore"] = $businessScore["npsScore"]; //add the company score
-                $thisCompany["npsRank"] = $businessScore["npsRank"]; //add the company rank
+                $thisCompany[0] = array( //add the company to the this company array, there should only be one of these
+                    "companyName" => $businessScore["companyName"], //add the company name
+                    "companyScore" => $businessScore["npsScore"], //add the company score
+                    "companyRank" => $businessScore["npsRank"] //add the company rank
+                );  //end of array
             } //end of else
         }
     }
