@@ -17,20 +17,16 @@ if ($readjson === false) {
     //Parse the comment
     foreach ($data as $businessScore) {
         if ($businessScore["companyName"] != "CEO Juice Client average") { //if the company is not the CEO Juice Client average
-            $companyName = $businessScore["companyName"]; //get the company name
-            $companyScore = $businessScore["npsScore"]; //get the company score
-            $companyRank = $businessScore["npsRank"]; //get the company rank
-            $isReferenceData = $businessScore["ReferenceData"]; //get the reference data flag
-            if ($isReferenceData == true) { //if the company is a reference data company
+            if ($businessScore["ReferenceData"] == true) { //if the company is a reference data company
                 $referenceCompanies[] = array( //add the company to the reference data array
-                    "companyName" => $companyName, //add the company name
-                    "companyScore" => $companyScore, //add the company score
-                    "companyRank" => $companyRank //add the company rank
+                    "companyName" => $businessScore["companyName"], //add the company name
+                    "companyScore" => $businessScore["npsScore"], //add the company score
+                    "companyRank" => $businessScore["npsRank"] //add the company rank
                 );  //end of array
-            } else $isReferenceData == false; { //if the company is not a reference data company then assume it is this company
-                $thisCompany["companyName"] = $companyName; //add the company name
-                $thisCompany["npsScore"] = $companyScore; //add the company score
-                $thisCompany["npsRank"] = $companyRank; //add the company rank
+            } elseif ($businessScore["ReferenceData"] == false) { //if the company is not a reference data company then assume it is this company
+                $thisCompany["companyName"] = $businessScore["companyName"]; //add the company name
+                $thisCompany["npsScore"] = $businessScore["npsScore"]; //add the company score
+                $thisCompany["npsRank"] = $businessScore["npsRank"]; //add the company rank
             } //end of else
         }
     }
