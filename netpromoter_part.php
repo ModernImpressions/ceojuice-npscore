@@ -32,7 +32,7 @@ if ($readjson === false) {
                     "companyScore" => $businessScore["npsScore"], //add the company score
                     "companyRank" => $businessScore["npsRank"] //add the company rank
                 );  //end of array
-                printf("<div class='item'>" . $businessScore["companyName"] . "</div>"); //print the company name
+                //printf("<div class='item'>" . $businessScore["companyName"] . "</div>"); //print the company name
             } //end of else
         }
     }
@@ -43,7 +43,6 @@ if ($readjson === false) {
     <?php foreach ($thisCompany as $company) {
             $ourScore = $company["companyScore"];
         }
-        print_r($thisCompany);
         ?>
     <svg class="typeRange" height="165" width="330" view-box="0 0 330 165">
         <g class="scale" stroke="red"></g>
@@ -52,5 +51,17 @@ if ($readjson === false) {
         <polygon class="needle" points="220,10 300,210 220,250 140,210" />
     </svg>
     <div class="output"><?php echo $ourScore; ?></div>
+</div>
+<div class="netpromoter referenceScores">
+    <ul class="referenceScore-list">
+        <?php foreach ($referenceCompanies as $company) { ?>
+        <li class="referenceScore-item">
+            <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
+            <progress class="referenceCompanyScore" min="-100" max="100" value="<?php echo $company["npsScore"] ?>">
+                <strong><?php echo $company["npsScore"] ?></strong>
+            </progress>
+        </li>
+        <?php } ?>
+    </ul>
 </div>
 <?php } ?>
