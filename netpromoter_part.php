@@ -19,14 +19,14 @@ if ($readjson === false) {
     foreach ($data as $businessScore) {
         if ($businessScore["companyName"] != "CEO Juice Client average") { //if the company is not the CEO Juice Client average)
             if ($businessScore["ReferenceData"] == true) { //if the company is a reference data company
-                $referenceCompanies[$referenceCount] = array( //add the company to the reference data array
+                $referenceCompanies[$referenceCount] .= array( //add the company to the reference data array
                     "companyName" => $businessScore["companyName"], //add the company name
                     "companyScore" => $businessScore["npsScore"], //add the company score
                     "companyRank" => $businessScore["npsRank"] //add the company rank
                 );  //end of array
                 $referenceCount++; //increment the reference company counter
             } elseif ($businessScore["ReferenceData"] == false) { //if the company is not a reference data company then assume it is this company
-                $thisCompany[0] = array( //add the company to the this company array, there should only be one of these
+                $thisCompany[0] .= array( //add the company to the this company array, there should only be one of these
                     "companyName" => $businessScore["companyName"], //add the company name
                     "companyScore" => $businessScore["npsScore"], //add the company score
                     "companyRank" => $businessScore["npsRank"] //add the company rank
