@@ -37,7 +37,9 @@ if ($readjson === false) {
     print_r($referenceCompanies . "\n");
 ?>
 <div class="netpromoter scoreGauge">
-    <?php $ourScore = $thisCompany["npsScore"] ?>
+    <?php foreach ($thisCompany as $company) {
+            $ourScore = $company["companyScore"];
+        } ?>
     <svg class="typeRange" height="165" width="330" view-box="0 0 330 165">
         <g class="scale" stroke="red"></g>
         <path class="outline" d="" />
