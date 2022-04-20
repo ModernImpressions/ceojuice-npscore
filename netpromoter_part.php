@@ -24,7 +24,7 @@ if ($readjson === false) {
                     "companyScore" => $businessScore["npsScore"], //add the company score
                     "companyRank" => $businessScore["npsRank"] //add the company rank
                 );  //end of array
-                printf("<div class='item'>" . $businessScore["companyName"] . "</div>"); //print the company name
+                //printf("<div class='item'>" . $businessScore["companyName"] . "</div>"); //print the company name
                 $referenceCount++; //increment the reference company counter
             } elseif ($businessScore["ReferenceData"] == false) { //if the company is not a reference data company then assume it is this company
                 $thisCompany[0] .= array( //add the company to the this company array, there should only be one of these
@@ -36,13 +36,15 @@ if ($readjson === false) {
             } //end of else
         }
     }
-    printf($thisCompany . "\n");
-    printf($referenceCompanies . "\n");
+    //print_r($thisCompany);
+    //print_r($referenceCompanies);
 ?>
 <div class="netpromoter scoreGauge">
     <?php foreach ($thisCompany as $company) {
             $ourScore = $company["companyScore"];
-        } ?>
+        }
+        print_r($thisCompany);
+        ?>
     <svg class="typeRange" height="165" width="330" view-box="0 0 330 165">
         <g class="scale" stroke="red"></g>
         <path class="outline" d="" />
