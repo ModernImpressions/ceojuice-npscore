@@ -22,10 +22,10 @@ if ($readjson === false) {
             $companyRank = $businessScore["npsRank"];
             $isReferenceData = $businessScore["ReferenceData"];
             if ($isReferenceData == true) {
-                $referenceCompanies["companyName"] = $companyName;
-                $referenceCompanies["npsScore"] = $companyScore;
-                $referenceCompanies["npsRank"] = $companyRank;
-            } else {
+                $referenceCompanies[array(["companyName"])] = $companyName;
+                $referenceCompanies[array(["npsScore"])] = $companyScore;
+                $referenceCompanies[array(["npsRank"])] = $companyRank;
+            } else $isReferenceData == false; {
                 $thisCompany["companyName"] = $companyName;
                 $thisCompany["npsScore"] = $companyScore;
                 $thisCompany["npsRank"] = $companyRank;
