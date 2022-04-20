@@ -24,6 +24,7 @@ if ($readjson === false) {
                     "companyScore" => $businessScore["npsScore"], //add the company score
                     "companyRank" => $businessScore["npsRank"] //add the company rank
                 );  //end of array
+                printf("<div class='item'>" . $businessScore["companyName"] . "</div>"); //print the company name
                 $referenceCount++; //increment the reference company counter
             } elseif ($businessScore["ReferenceData"] == false) { //if the company is not a reference data company then assume it is this company
                 $thisCompany[0] .= array( //add the company to the this company array, there should only be one of these
@@ -31,6 +32,7 @@ if ($readjson === false) {
                     "companyScore" => $businessScore["npsScore"], //add the company score
                     "companyRank" => $businessScore["npsRank"] //add the company rank
                 );  //end of array
+                printf("<div class='item'>" . $businessScore["companyName"] . "</div>"); //print the company name
             } //end of else
         }
     }
