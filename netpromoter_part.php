@@ -22,18 +22,27 @@ if ($readjson === false) {
             $companyRank = $businessScore["npsRank"];
             $isReferenceData = $businessScore["ReferenceData"];
             if ($isReferenceData == true) {
-                $referenceCompanies[] = $companyName;
-                $referenceCompanies[] = $companyScore;
-                $referenceCompanies[] = $companyRank;
+                $referenceCompanies["companyName"] = $companyName;
+                $referenceCompanies["npsScore"] = $companyScore;
+                $referenceCompanies["npsRank"] = $companyRank;
             } else {
-                $thisCompany[] = $companyName;
-                $thisCompany[] = $companyScore;
-                $thisCompany[] = $companyRank;
+                $thisCompany["companyName"] = $companyName;
+                $thisCompany["npsScore"] = $companyScore;
+                $thisCompany["npsRank"] = $companyRank;
             }
         }
     }
-    //print_r($thisCompany);
-    //print_r($referenceCompanies);
+    print_r($thisCompany);
+    print_r($referenceCompanies);
 ?>
-
+<div class="netpromoter scoreGauge">
+    <?php $ourScore = $thisCompany["npsScore"] ?>
+    <svg class="typeRange" height="165" width="330" view-box="0 0 330 165">
+        <g class="scale" stroke="red"></g>
+        <path class="outline" d="" />
+        <path class="fill" d="" />
+        <polygon class="needle" points="220,10 300,210 220,250 140,210" />
+    </svg>
+    <div class="output"><?php echo $ourScore; ?></div>
+</div>
 <?php } ?>
