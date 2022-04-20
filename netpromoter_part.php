@@ -33,8 +33,8 @@ if ($readjson === false) {
             } //end of else
         }
     }
-    print_r($thisCompany . "\n");
-    print_r($referenceCompanies . "\n");
+    printf($thisCompany . "\n");
+    printf($referenceCompanies . "\n");
 ?>
 <div class="netpromoter scoreGauge">
     <?php foreach ($thisCompany as $company) {
