@@ -42,6 +42,8 @@ if ($readjson === false) {
 <div class="netpromoter scoreGauge">
     <?php foreach ($thisCompany as $company) {
             $ourScore = $company["companyScore"];
+            $ourRank = $company["companyRank"];
+            $ourCompany = $company["companyName"];
         }
         ?>
     <svg class="typeRange" height="165" width="330" view-box="0 0 330 165">
@@ -57,8 +59,8 @@ if ($readjson === false) {
         <?php foreach ($referenceCompanies as $company) { ?>
         <li class="referenceScore-item">
             <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
-            <progress class="referenceCompanyScore" min="-100" max="100" value="<?php echo $company["npsScore"] ?>">
-                <strong><?php echo $company["npsScore"] ?></strong>
+            <progress class="referenceCompanyScore" min="-100" max="100" value="<?php echo $company["companyScore"] ?>">
+                <strong><?php echo $company["companyScore"] ?></strong>
             </progress>
         </li>
         <?php } ?>
