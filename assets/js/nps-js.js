@@ -21,8 +21,6 @@ var cy = 160;
 var r1 = cx - offset;
 var delta = ~~(r1 / 4);
 
-alert("initVal: " + initVal);
-
 var isDragging = false;
 
 var x1 = cx + r1,
