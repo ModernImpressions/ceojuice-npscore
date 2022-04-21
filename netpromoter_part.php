@@ -40,36 +40,36 @@ if ($readjson === false) {
     //print_r($referenceCompanies);
     wp_enqueue_style('ceojuice-npscore-style', get_template_directory_uri() . '/other_part/ceojuice-npscore/assets/css/nps-styles.min.css');
 ?>
-    <div class="netpromoter scoreGauge">
-        <?php foreach ($thisCompany as $company) {
+<div class="netpromoter scoreGauge">
+    <?php foreach ($thisCompany as $company) {
             $ourScore = $company["companyScore"];
             $ourRank = $company["companyRank"];
             $ourCompany = $company["companyName"];
         }
         ?>
-        <script type="text/javascript">
-            var initVal = "<?= $ourScore ?>";
-        </script>
-        <svg class="typeRange" height="165" width="330" view-box="0 0 330 165">
-            <g class="scale" stroke="red"></g>
-            <path class="outline" d="" />
-            <path class="fill" d="" />
-            <polygon class="needle" points="220,10 300,210 220,250 140,210" />
-        </svg>
-        <div class="output"><?php echo $ourScore; ?></div>
-    </div>
-    <div class="netpromoter referenceScores">
-        <ul class="referenceScore-list">
-            <?php foreach ($referenceCompanies as $company) { ?>
-                <li class="referenceScore-item">
-                    <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
-                    <meter class="referenceCompanyScore" min="-100" max="100" value="<?php echo $company["companyScore"] ?>">
-                        <strong><?php echo $company["companyScore"] ?></strong>
-                    </meter>
-                </li>
-            <?php } ?>
-        </ul>
-    </div>
+    <script type="text/javascript">
+    var initVal = "<?= $ourScore ?>";
+    </script>
+    <svg class="typeRange" height="165" width="330" view-box="0 0 330 165">
+        <g class="scale" stroke="red"></g>
+        <path class="outline" d="" />
+        <path class="fill" d="" />
+        <polygon class="needle" points="220,10 300,210 220,250 140,210" />
+    </svg>
+    <div class="output"><?php echo $ourScore; ?></div>
+</div>
+<div class="netpromoter referenceScores">
+    <ul class="referenceScore-list">
+        <?php foreach ($referenceCompanies as $company) { ?>
+        <li class="referenceScore-item">
+            <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
+            <progress class="referenceCompanyScore" min="-100" max="100" value="<?php echo $company["companyScore"] ?>">
+                <strong><?php echo $company["companyScore"] ?></strong>
+            </progress>
+        </li>
+        <?php } ?>
+    </ul>
+</div>
 <?php }
 wp_enqueue_script('ceojuice-npscore-script', get_template_directory_uri() . '/other_part/ceojuice-npscore/assets/js/nps-js.min.js', array('jquery'), '1.0.0', true);
 ?>
