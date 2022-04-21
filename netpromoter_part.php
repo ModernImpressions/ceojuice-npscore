@@ -56,7 +56,7 @@ if ($readjson === false) {
         <path class="fill" d="" />
         <polygon class="needle" points="220,10 300,210 220,250 140,210" />
     </svg>
-    <div class="output"><?php echo $ourScore; ?></div>
+    <div class="output"></div>
 </div>
 <div class="netpromoter referenceScores">
     <ul class="referenceScore-list">
@@ -64,8 +64,9 @@ if ($readjson === false) {
         <li class="referenceScore-item">
             <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
             <progress class="referenceCompanyScore" min="-100" max="100" value="<?php echo $company["companyScore"] ?>">
-                <strong><?php echo $company["companyScore"] ?></strong>
+                <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
             </progress>
+            <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
         </li>
         <?php } ?>
     </ul>
