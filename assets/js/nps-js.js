@@ -8,7 +8,7 @@ var fill = document.querySelector(".fill");
 var center = document.querySelector(".center");
 var needle = document.querySelector(".needle");
 
-var initialValue = 90;
+var initialValue = document.querySelector(".output");
 
 var rad = Math.PI / 180;
 var NS = "http://www.w3.org/2000/svg";
@@ -21,7 +21,7 @@ var cy = 160;
 var r1 = cx - offset;
 var delta = ~~(r1 / 4);
 
-var initVal = 90;
+alert("initVal: " + initVal);
 
 var isDragging = false;
 
