@@ -73,8 +73,8 @@ li.referenceScore-item span.referenceCompanyName {
 	font-size: 2em;
 }
 
-li.referenceScore-item meter,
-meter[role] {
+li.referenceScore-item progress,
+progress[role] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
