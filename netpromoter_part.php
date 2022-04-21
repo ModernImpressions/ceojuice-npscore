@@ -38,6 +38,7 @@ if ($readjson === false) {
     }
     //print_r($thisCompany);
     //print_r($referenceCompanies);
+    wp_enqueue_style('ceojuice-npscore-style', get_template_directory_uri() . '/other_part/ceojuice-npscore/assets/css/nps-styles.min.css');
 ?>
 <div class="netpromoter scoreGauge">
     <?php foreach ($thisCompany as $company) {
@@ -66,4 +67,6 @@ if ($readjson === false) {
         <?php } ?>
     </ul>
 </div>
-<?php } ?>
+<?php }
+wp_enqueue_script('ceojuice-npscore-script', get_template_directory_uri() . '/other_part/ceojuice-npscore/assets/js/nps-js.min.js', array('jquery'), '1.0.0', true);
+?>
