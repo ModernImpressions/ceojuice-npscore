@@ -2,7 +2,6 @@
 
 var containersRy = document.querySelector(".scoreGauge");
 var svg = document.querySelector(".typeRange");
-var output = document.querySelector(".output");
 var outline = document.querySelector(".outline");
 var fill = document.querySelector(".fill");
 var center = document.querySelector(".center");
@@ -94,7 +93,6 @@ function updateInput(p, cx, cy, r1, offset, delta) {
 	var a = Math.atan2(ly, lx) / rad - 180;
 
 	drawInput(cx, cy, r1, offset, delta, a);
-	output.innerHTML = Math.round((a + 180) / 1.8);
 	initialValue.value = Math.round((a + 180) / 1.8);
 }
 
