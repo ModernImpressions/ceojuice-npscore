@@ -68,3 +68,75 @@ svg.focusable {
 .scale {
 	stroke: #aaa;
 }
+
+li.referenceScore-item span.referenceCompanyName {
+	font-size: 2em;
+}
+
+li.referenceScore-item meter,
+meter[role] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+	background-size: auto;
+	height: 100px;
+	width: 100%;
+}
+
+.referenceScore-list {
+	list-style: none;
+	margin: 0;
+	padding: 1em;
+}
+
+.referenceScore-item {
+	margin-bottom: 1em;
+	position: relative;
+}
+.referenceScore-item span {
+	color: #fff;
+	left: 1em;
+	line-height: 1;
+	position: absolute;
+	top: 1em;
+}
+.referenceScore-item ::-webkit-progress-value {
+	-webkit-animation: bar-fill 2s;
+	width: 0px;
+}
+
+.referenceScore-item-1::-webkit-progress-value {
+	background: #ff9e2c;
+}
+
+.referenceScore-item-1::-moz-progress-bar {
+	background: #ff9e2c;
+}
+
+.referenceScore-item-2::-webkit-progress-value {
+	background: #4ecdc4;
+}
+
+.referenceScore-item-2::-moz-progress-bar {
+	background: #4ecdc4;
+}
+
+.referenceScore-item-3::-webkit-progress-value {
+	background: #ff6b6b;
+}
+
+.referenceScore-item-3::-moz-progress-bar {
+	background: #ff6b6b;
+}
+
+@-webkit-keyframes bar-fill {
+	0% {
+		width: 0;
+	}
+}
+@keyframes bar-fill {
+	0% {
+		width: 0;
+	}
+}
