@@ -37,7 +37,7 @@ svg {
 	margin: 0px;
 	padding: 0;
 	cursor: pointer;
-	border: 1px solid #0a1a17;
+	overflow: visible;
 }
 
 svg.focusable {
