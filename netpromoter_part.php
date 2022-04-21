@@ -63,9 +63,9 @@ if ($readjson === false) {
         <?php foreach ($referenceCompanies as $company) { ?>
         <li class="referenceScore-item">
             <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
-            <progress class="referenceCompanyScore" min="-100" max="100" value="<?php echo $company["companyScore"] ?>">
+            <meter class="referenceCompanyScore" min="-100" max="100" value="<?php echo $company["companyScore"] ?>">
                 <strong><?php echo $company["companyScore"] ?></strong>
-            </progress>
+            </meter>
         </li>
         <?php } ?>
     </ul>
