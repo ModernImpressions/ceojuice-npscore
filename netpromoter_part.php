@@ -47,6 +47,9 @@ if ($readjson === false) {
             $ourCompany = $company["companyName"];
         }
         ?>
+    <script type="text/javascript">
+    var initVal = "<?= $ourScore ?>";
+    </script>
     <svg class="typeRange" height="165" width="330" view-box="0 0 330 165">
         <g class="scale" stroke="red"></g>
         <path class="outline" d="" />
