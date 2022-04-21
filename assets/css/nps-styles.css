@@ -70,7 +70,7 @@ svg.focusable {
 }
 
 li.referenceScore-item span.referenceCompanyName {
-	font-size: 2em;
+	font-size: 1.5em;
 }
 
 li.referenceScore-item progress,
@@ -100,6 +100,11 @@ progress[role] {
 	line-height: 1;
 	position: absolute;
 	top: 1em;
+}
+.referenceScore-item span.referenceCompany.score {
+	right: 1em;
+	left: unset;
+	font-size: 1.5em;
 }
 .referenceScore-item ::-webkit-progress-value {
 	-webkit-animation: bar-fill 2s;
