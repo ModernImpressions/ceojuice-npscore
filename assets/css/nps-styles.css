@@ -11,7 +11,7 @@
 	line-height: 35px;
 	width: 60px;
 	height: 30px;
-	background-color: #0f4534;
+	background-color: #808080;
 	border-radius: 60px 60px 0 0;
 	position: absolute;
 	top: 135px;
@@ -21,8 +21,8 @@
 
 .initialValue {
 	border: none;
-	border-bottom: 1px solid #399988;
-	color: #399988;
+	border-bottom: 1px solid #007f7b;
+	color: #007f7b;
 	display: block;
 	width: 3em;
 	background-color: transparent;
@@ -41,7 +41,7 @@ svg {
 }
 
 svg.focusable {
-	border: 1px solid #0f4534;
+	border: 1px solid #808080;
 }
 
 .outline,
@@ -54,11 +54,11 @@ svg.focusable {
 }
 
 .outline {
-	fill: #0f4534;
+	fill: #808080;
 }
 
 .fill {
-	fill: #399988;
+	fill: #007f7b;
 }
 
 .needle {
@@ -119,6 +119,7 @@ progress[role] {
 .referenceScore-item ::-webkit-progress-value {
 	-webkit-animation: bar-fill 2s;
 	width: 0px;
+	background: #007f7b;
 }
 
 .referenceScore-item-1::-webkit-progress-value {
