@@ -57,7 +57,7 @@ if ($readScoreJson === false) {
                     var initVal = "<?= $ourScore ?>";
                     </script>
                     <svg class="typeRange" height="165" width="400" view-box="0 0 400 165">
-                        <g class="scale" stroke="red"></g>
+                        <g class="scale" stroke="black"></g>
                         <path class="outline" d="" />
                         <path class="fill" d="" />
                         <polygon class="needle" points="220,10 300,210 220,250 140,210" />
