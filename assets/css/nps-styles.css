@@ -165,11 +165,9 @@ progress[role] {
 	height: 100%;
 	max-width: 30%;
 	max-height: 30%;
-	margin: 2%;
+	margin: 2% !important;
 }
 
 .npsaward img {
 	margin: 0px;
-	max-height: 200px;
-	max-width: 200px;
 }
