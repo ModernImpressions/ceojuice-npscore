@@ -45,7 +45,7 @@ if ($readScoreJson === false) {
 <div class="container">
     <div class="row">
         <div class="col-sm">
-            <div class="row">
+            <div class="row npsrow">
                 <div class="netpromoter scoreGauge">
                     <?php foreach ($thisCompany as $company) {
                             $ourScore = $company["companyScore"];
@@ -65,7 +65,7 @@ if ($readScoreJson === false) {
                     <div class="output"></div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row npsrow">
                 <div class="netpromoter npsawards">
                     <?php if ($readAwardsData != false) {
                             $processedAwardsData = str_replace('<link href="/ZCJ_BSCustomClasses.css" rel="stylesheet">', "", $readAwardsData);

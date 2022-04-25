@@ -1,4 +1,7 @@
 /** @format */
+.row.npsrow {
+	margin: 0%;
+}
 
 .scoreGauge {
 	position: relative;
