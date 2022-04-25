@@ -1,17 +1,19 @@
 <?php
 $ceonpsURL = "https://api.ceojuice.com/api/Processes/Nps?CustomerNumber=";
+$ceonpsawardsURL = "https://api.ceojuice.com/widgets/npsawards?customernumber=";
 $ceoCustNum = ot_get_option('ceojuice_customerid');
 $ceoAPIKey = ot_get_option('ceojuice_apiauth');
 //$format = new NumberFormatter("en", NumberFormatter::SPELLOUT);
-$buildURL = $ceonpsURL . $ceoCustNum . '&AuthKey=' . $ceoAPIKey;
-
-$readjson = @file_get_contents($buildURL, true);
-if ($readjson === false) {
+$buildScoreURL = $ceonpsURL . $ceoCustNum . '&AuthKey=' . $ceoAPIKey;
+$buildAwardsURL = $ceonpsawardsURL . $ceoCustNum . '&count=4';
+$readAwardsData = @file_get_contents($buildAwardsURL, true);
+$readScoreJson = @file_get_contents($buildScoreURL, true);
+if ($readScoreJson === false) {
     //There is an error opening the file
 } else {
     //Results are received from the CEOJuice API
     //Decode JSON
-    $data = json_decode($readjson, true);
+    $data = json_decode($readScoreJson, true);
     $thisCompany = array(); //array to hold this companies data
     $referenceCompanies = array();  //array to hold the reference data company names
     $referenceCount = 0; //counter for the reference companies
@@ -40,18 +42,19 @@ if ($readjson === false) {
     //print_r($referenceCompanies);
     wp_enqueue_style('ceojuice-npscore-style', get_template_directory_uri() . '/other_part/ceojuice-npscore/assets/css/nps-styles.min.css');
 ?>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div class="row">
                 <div class="netpromoter scoreGauge">
                     <?php foreach ($thisCompany as $company) {
-                        $ourScore = $company["companyScore"];
-                        $ourRank = $company["companyRank"];
-                        $ourCompany = $company["companyName"];
-                    }
-                    ?>
+                            $ourScore = $company["companyScore"];
+                            $ourRank = $company["companyRank"];
+                            $ourCompany = $company["companyName"];
+                        }
+                        ?>
                     <script type="text/javascript">
-                        var initVal = "<?= $ourScore ?>";
+                    var initVal = "<?= $ourScore ?>";
                     </script>
                     <svg class="typeRange" height="165" width="400" view-box="0 0 400 165">
                         <g class="scale" stroke="red"></g>
@@ -62,30 +65,40 @@ if ($readjson === false) {
                     <div class="output"></div>
                 </div>
             </div>
-            <div class="col-sm">
-                <div class="netpromoter referenceScores">
-                    <ul class="referenceScore-list">
-                        <li class="referenceScore-item">
-                            <span class="referenceCompanyName ourcompany"><?php echo $company["companyName"] ?></span>
-                            <progress class="referenceCompanyScore ourscore" min="-100" max="100" value="<?php echo $company["companyScore"] ?>">
-                                <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
-                            </progress>
-                            <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
-                        </li>
-                        <?php foreach ($referenceCompanies as $company) { ?>
-                            <li class="referenceScore-item">
-                                <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
-                                <progress class="referenceCompanyScore" min="-100" max="100" value="<?php echo $company["companyScore"] ?>">
-                                    <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
-                                </progress>
-                                <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
-                            </li>
-                        <?php } ?>
-                    </ul>
+            <div class="row">
+                <div class="netpromoter npsawards">
+                    <?php if ($readAwardsData === true) { ?>
+                    <?php echo $readAwardsData; ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>
+        <div class="col-sm">
+            <div class="netpromoter referenceScores">
+                <ul class="referenceScore-list">
+                    <li class="referenceScore-item">
+                        <span class="referenceCompanyName ourcompany"><?php echo $company["companyName"] ?></span>
+                        <progress class="referenceCompanyScore ourscore" min="-100" max="100"
+                            value="<?php echo $company["companyScore"] ?>">
+                            <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
+                        </progress>
+                        <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
+                    </li>
+                    <?php foreach ($referenceCompanies as $company) { ?>
+                    <li class="referenceScore-item">
+                        <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
+                        <progress class="referenceCompanyScore" min="-100" max="100"
+                            value="<?php echo $company["companyScore"] ?>">
+                            <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
+                        </progress>
+                        <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
+                    </li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </div>
     </div>
+</div>
 <?php }
 wp_enqueue_script('ceojuice-npscore-script', get_template_directory_uri() . '/other_part/ceojuice-npscore/assets/js/nps-js.min.js', array('jquery'), '1.0.0', true);
 ?>
