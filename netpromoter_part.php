@@ -67,9 +67,10 @@ if ($readScoreJson === false) {
             </div>
             <div class="row">
                 <div class="netpromoter npsawards">
-                    <?php if ($readAwardsData === true) { ?>
+                    <?php if ($readAwardsData != false) { ?>
                     <?php echo $readAwardsData; ?>
                     <?php } ?>
+                    <?php echo $readAwardsData; ?>
                 </div>
             </div>
         </div>
