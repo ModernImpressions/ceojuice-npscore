@@ -91,7 +91,9 @@ if ($readScoreJson === false) {
                     </li>
                     <?php $referenceCounter = 1;
                         foreach ($referenceCompanies as $company) { ?>
-                    <li class="referenceScore-item<?php if($referenceCounter > 0) { echo "-" . $referenceCounter; } ?>">
+                    <li class="referenceScore-item<?php if ($referenceCounter > 0) {
+                                                                echo "-" . $referenceCounter;
+                                                            } ?>">
                         <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
                         <progress class="referenceCompanyScore" min="-100" max="100"
                             value="<?php echo $company["companyScore"] ?>">
@@ -99,8 +101,7 @@ if ($readScoreJson === false) {
                         </progress>
                         <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
                     </li>
-                    <?php $referenceCounter++;
-                        } ?>
+                    <?php $referenceCounter++; ?>
                     <?php } ?>
                 </ul>
             </div>
