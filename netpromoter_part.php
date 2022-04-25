@@ -5,7 +5,7 @@ $ceoCustNum = ot_get_option('ceojuice_customerid');
 $ceoAPIKey = ot_get_option('ceojuice_apiauth');
 //$format = new NumberFormatter("en", NumberFormatter::SPELLOUT);
 $buildScoreURL = $ceonpsURL . $ceoCustNum . '&AuthKey=' . $ceoAPIKey;
-$buildAwardsURL = $ceonpsawardsURL . $ceoCustNum . '&count=4';
+$buildAwardsURL = $ceonpsawardsURL . $ceoCustNum . '&count=4&containerclass=npsaward';
 $readAwardsData = @file_get_contents($buildAwardsURL, true);
 $readScoreJson = @file_get_contents($buildScoreURL, true);
 if ($readScoreJson === false) {
@@ -67,10 +67,13 @@ if ($readScoreJson === false) {
             </div>
             <div class="row">
                 <div class="netpromoter npsawards">
-                    <?php if ($readAwardsData != false) { ?>
-                    <?php echo $readAwardsData; ?>
+                    <?php if ($readAwardsData != false) {
+                            $processedAwardsData = str_replace('<link href="/ZCJ_BSCustomClasses.css" rel="stylesheet">', "", $readAwardsData);
+                            $processedAwardsData = str_replace('style="width:0px"', "", $processedAwardsData);
+                            $processedAwardsData = str_replace('zcj-img-fluid', "npsaward img", $processedAwardsData);
+                            $npsAwardsData = $processedAwardsData; ?>
+                    <?php echo $npsAwardsData; ?>
                     <?php } ?>
-                    <?php echo $readAwardsData; ?>
                 </div>
             </div>
         </div>
