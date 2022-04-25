@@ -162,8 +162,12 @@ progress[role] {
 .npsaward {
 	display: inline-flex;
 	width: 100%;
-	max-width: 30%;
+	max-width: 200px;
 	margin: 2% !important;
+	padding: 0;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
 }
 
 .npsaward img {
