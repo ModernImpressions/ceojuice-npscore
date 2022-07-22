@@ -8,9 +8,9 @@
 
 .scoreGauge {
 	position: relative;
-	margin: 100px auto 50px auto;
+	margin: 10px auto 20px auto;
 	height: 235px;
-	width: 400px;
+	width: 100%;
 }
 
 .output {
