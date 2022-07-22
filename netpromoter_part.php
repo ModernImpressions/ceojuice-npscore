@@ -42,72 +42,65 @@ if ($readScoreJson === false) {
     //print_r($referenceCompanies);
     wp_enqueue_style('ceojuice-npscore-style', get_template_directory_uri() . '/other_part/ceojuice-npscore/assets/css/nps-styles.min.css');
 ?>
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <div class="row npsrow">
-                <div class="netpromoter scoreGauge">
-                    <?php foreach ($thisCompany as $company) {
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="row npsrow">
+                    <div class="netpromoter scoreGauge">
+                        <?php foreach ($thisCompany as $company) {
                             $ourScore = $company["companyScore"];
                             $ourRank = $company["companyRank"];
                             $ourCompany = $company["companyName"];
                         }
                         ?>
-                    <script type="text/javascript">
-                    var initVal = "<?= $ourScore ?>";
-                    </script>
-                    <svg class="typeRange" height="235" width="400" view-box="0 0 400 235">
-                        <g class="scale" stroke="black"></g>
-                        <path class="outline" d="" />
-                        <path class="fill" d="" />
-                        <polygon class="needle" points="220,10 300,210 220,250 140,210" />
-                    </svg>
-                    <div class="output"></div>
+                        <script type="text/javascript">
+                            var initVal = "<?= $ourScore ?>";
+                        </script>
+                        <div class="chart-gauge"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="row npsrow">
-                <div class="netpromoter npsawards">
-                    <?php if ($readAwardsData != false) {
+                <div class="row npsrow">
+                    <div class="netpromoter npsawards">
+                        <?php if ($readAwardsData != false) {
                             $processedAwardsData = str_replace('<link href="/ZCJ_BSCustomClasses.css" rel="stylesheet">', "", $readAwardsData);
                             $processedAwardsData = str_replace('/ZCJ_BSCustomClasses.css', "", $readAwardsData);
                             $processedAwardsData = str_replace('style="width:0px"', "", $processedAwardsData);
                             $processedAwardsData = str_replace('zcj-img-fluid', "npsaward img", $processedAwardsData);
                             $npsAwardsData = $processedAwardsData; ?>
-                    <?php echo $npsAwardsData; ?>
-                    <?php } ?>
+                            <?php echo $npsAwardsData; ?>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="netpromoter referenceScores">
+                    <ul class="referenceScore-list">
+                        <li class="referenceScore-item">
+                            <span class="referenceCompanyName ourcompany"><?php echo $company["companyName"] ?></span>
+                            <progress class="referenceCompanyScore ourscore" min="-100" max="100" value="<?php echo $company["companyScore"] ?>">
+                                <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
+                            </progress>
+                            <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
+                        </li>
+                        <?php $referenceCounter = 1;
+                        foreach ($referenceCompanies as $company) { ?>
+                            <li class="referenceScore-item <?php if ($referenceCounter > 0) {
+                                                                echo "item-" . $referenceCounter;
+                                                            } ?>">
+                                <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
+                                <progress class="referenceCompanyScore" min="-100" max="100" value="<?php echo $company["companyScore"] ?>">
+                                    <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
+                                </progress>
+                                <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
+                            </li>
+                            <?php $referenceCounter++; ?>
+                        <?php } ?>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="col-sm">
-            <div class="netpromoter referenceScores">
-                <ul class="referenceScore-list">
-                    <li class="referenceScore-item">
-                        <span class="referenceCompanyName ourcompany"><?php echo $company["companyName"] ?></span>
-                        <progress class="referenceCompanyScore ourscore" min="-100" max="100"
-                            value="<?php echo $company["companyScore"] ?>">
-                            <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
-                        </progress>
-                        <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
-                    </li>
-                    <?php $referenceCounter = 1;
-                        foreach ($referenceCompanies as $company) { ?>
-                    <li class="referenceScore-item <?php if ($referenceCounter > 0) {
-                                                                echo "item-" . $referenceCounter;
-                                                            } ?>">
-                        <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
-                        <progress class="referenceCompanyScore" min="-100" max="100"
-                            value="<?php echo $company["companyScore"] ?>">
-                            <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
-                        </progress>
-                        <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
-                    </li>
-                    <?php $referenceCounter++; ?>
-                    <?php } ?>
-                </ul>
-            </div>
-        </div>
     </div>
-</div>
 <?php }
-wp_enqueue_script('ceojuice-npscore-script', get_template_directory_uri() . '/other_part/ceojuice-npscore/assets/js/nps-js.min.js', array('jquery'), '1.0.0', true);
+wp_enqueue_script('d3-js', 'https://d3js.org/d3.v7.min.js', array('jquery'), '7.0.0', true);
+wp_enqueue_script('ceojuice-npscore-script', get_template_directory_uri() . '/other_part/ceojuice-npscore/assets/js/nps-js.min.js', array('jquery', 'd3-js'), '1.0.0', true);
 ?>

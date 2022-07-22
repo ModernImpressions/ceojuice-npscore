@@ -39,45 +39,32 @@
 }
 /*SVG*/
 
-svg {
-	margin: 0px;
-	padding: 0;
-	cursor: pointer;
-	overflow: visible;
+.chart-gauge {
+	width: 400px;
+	margin: 10px auto;
 }
 
-svg.focusable {
-	border: 1px solid #808080;
+.chart-color1 {
+	fill: #dea82c;
 }
 
-.outline,
-.fill,
-.center,
+.chart-color2 {
+	fill: #e9621a;
+}
+
+.chart-color3 {
+	fill: #e92213;
+}
+
 .needle,
-.scale,
-.output {
-	pointer-events: none;
+.needle-center {
+	fill: #464a4f;
 }
 
-.outline {
-	fill: #808080;
-}
-
-.fill {
-	fill: #007f7b;
-}
-
-.needle {
-	fill: #aa0000;
-}
-
-.scale {
-	stroke: none;
-}
-
-.scoreGauge svg g text {
-	font-size: 1.5em;
-	font-family: inherit;
+.prose {
+	text-align: center;
+	font-family: sans-serif;
+	color: #ababab;
 }
 
 li.referenceScore-item span.referenceCompanyName {
