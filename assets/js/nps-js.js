@@ -90,7 +90,6 @@
 		1 <= ref ? i <= ref : i >= ref;
 		sectionIndx = 1 <= ref ? ++i : --i
 	) {
-		if (window.CP.shouldStopExecution(0)) break;
 		arcStartRad = percToRad(totalPercent);
 		arcEndRad = arcStartRad + percToRad(sectionPerc);
 		totalPercent += sectionPerc;
@@ -107,7 +106,6 @@
 			.attr("class", `arc chart-color${sectionIndx}`)
 			.attr("d", arc);
 	}
-	window.CP.exitedLoop(0);
 
 	Needle = class Needle {
 		constructor(len, radius1) {
