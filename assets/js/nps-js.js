@@ -29,7 +29,6 @@
 		totalPercent,
 		width;
 
-	// take value from initVal (already in a decimal range of 0 to 100) and convert it to a range of 0 to 1. Then assign it to the percent variable.
 	percent = initVal / 100;
 
 	barWidth = 40;
@@ -91,7 +90,7 @@
 		1 <= ref ? i <= ref : i >= ref;
 		sectionIndx = 1 <= ref ? ++i : --i
 	) {
-		if (shouldStopExecution(0)) break;
+		if (window.CP.shouldStopExecution(0)) break;
 		arcStartRad = percToRad(totalPercent);
 		arcEndRad = arcStartRad + percToRad(sectionPerc);
 		totalPercent += sectionPerc;
@@ -108,7 +107,7 @@
 			.attr("class", `arc chart-color${sectionIndx}`)
 			.attr("d", arc);
 	}
-	exitedLoop(0);
+	window.CP.exitedLoop(0);
 
 	Needle = class Needle {
 		constructor(len, radius1) {
