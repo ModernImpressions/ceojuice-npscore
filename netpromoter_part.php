@@ -103,6 +103,6 @@ if ($readScoreJson === false) {
     </div>
 </div>
 <?php }
-wp_enqueue_script('d3-js', 'https://d3js.org/d3.v7.min.js', array('jquery'), '7.0.0', false); //load d3.js
+wp_enqueue_script('d3-js', 'https://d3js.org/d3.v3.min.js', array('jquery'), '3.0.0', false); //load d3.js
 wp_enqueue_script('ceojuice-npscore-script', get_template_directory_uri() . '/other_part/ceojuice-npscore/assets/js/nps-js.min.js', array('jquery', 'd3-js'), '1.0.0', true);
 ?>

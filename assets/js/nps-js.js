@@ -30,7 +30,7 @@
 		width;
 
 	// take value from initVal (already in a decimal range of 0 to 100) and convert it to a range of 0 to 1. Then assign it to the percent variable.
-	percent = 0.955;
+	percent = initVal / 100;
 
 	barWidth = 40;
 
