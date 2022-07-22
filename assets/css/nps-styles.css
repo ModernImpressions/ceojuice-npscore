@@ -45,15 +45,23 @@
 }
 
 .chart-color1 {
-	fill: #dea82c;
+	fill: #161918;
 }
 
 .chart-color2 {
-	fill: #e9621a;
+	fill: #a70a20;
 }
 
 .chart-color3 {
-	fill: #e92213;
+	fill: #af4c0b;
+}
+
+.chart-color4 {
+	fill: #07705b;
+}
+
+.chart-color5 {
+	fill: #2b9509;
 }
 
 .needle,

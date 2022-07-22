@@ -33,7 +33,7 @@
 
 	barWidth = 40;
 
-	numSections = 3;
+	numSections = 5;
 
 	// / 2 for HALF circle
 	sectionPerc = 1 / numSections / 2;
