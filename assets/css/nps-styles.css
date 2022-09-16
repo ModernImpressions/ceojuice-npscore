@@ -127,7 +127,7 @@ progress[role] {
 	background: #ababab;
 }
 
-.referenceScore-item.us span.referenceCompany.score {
+.referenceScore-item span.referenceCompany.score {
 	right: 1em;
 	left: unset;
 	font-size: 1em;
@@ -136,7 +136,7 @@ progress[role] {
 	background: #007f7b;
 }
 
-.referenceScore-item progress::-moz-progress-bar {
+.referenceScore-item.us progress::-moz-progress-bar {
 	background: #007f7b;
 }
 
