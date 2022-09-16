@@ -75,7 +75,7 @@ if ($readScoreJson === false) {
         <div class="col-sm">
             <div class="netpromoter referenceScores">
                 <ul class="referenceScore-list">
-                    <li class="referenceScore-item">
+                    <li class="referenceScore-item us">
                         <span class="referenceCompanyName ourcompany"><?php echo $company["companyName"] ?></span>
                         <progress class="referenceCompanyScore ourscore" min="-100" max="100"
                             value="<?php echo $company["companyScore"] ?>">

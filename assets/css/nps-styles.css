@@ -112,41 +112,6 @@ progress[role] {
 	position: absolute;
 	top: 1em;
 }
-.referenceScore-item span.referenceCompany.score {
-	right: 1em;
-	left: unset;
-	font-size: 1em;
-}
-.referenceScore-item ::-webkit-progress-value {
-	-webkit-animation: bar-fill 2s;
-	width: 0px;
-	background: #007f7b;
-}
-
-.referenceScore-item-1::-webkit-progress-value {
-	background: #ff9e2c;
-}
-
-.referenceScore-item-1::-moz-progress-bar {
-	background: #ff9e2c;
-}
-
-.referenceScore-item-2::-webkit-progress-value {
-	background: #4ecdc4;
-}
-
-.referenceScore-item-2::-moz-progress-bar {
-	background: #4ecdc4;
-}
-
-.referenceScore-item-3::-webkit-progress-value {
-	background: #ff6b6b;
-}
-
-.referenceScore-item-3::-moz-progress-bar {
-	background: #ff6b6b;
-}
-
 /* For Firefox */
 .referenceScore-item progress::-moz-progress-bar {
 	background: #464a4f;
@@ -160,6 +125,43 @@ progress[role] {
 /* For IE10 */
 .referenceScore-item progress {
 	background: #ababab;
+}
+
+.referenceScore-item.us span.referenceCompany.score {
+	right: 1em;
+	left: unset;
+	font-size: 1em;
+}
+.referenceScore-item.us progress::-webkit-progress-value {
+	background: #007f7b;
+}
+
+.referenceScore-item progress::-moz-progress-bar {
+	background: #007f7b;
+}
+
+.referenceScore-item.item-1 progress::-webkit-progress-value {
+	background: #ff9e2c;
+}
+
+.referenceScore-item.item-1 progress::-moz-progress-bar {
+	background: #ff9e2c;
+}
+
+.referenceScore-item.item-2 progress::-webkit-progress-value {
+	background: #4ecdc4;
+}
+
+.referenceScore-item.item-2 progress::-moz-progress-bar {
+	background: #4ecdc4;
+}
+
+.referenceScore-item.item-3 progress::-webkit-progress-value {
+	background: #ff6b6b;
+}
+
+.referenceScore-item.item-3 progress::-moz-progress-bar {
+	background: #ff6b6b;
 }
 
 @-webkit-keyframes bar-fill {
