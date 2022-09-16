@@ -149,17 +149,17 @@ progress[role] {
 
 /* For Firefox */
 .referenceScore-item progress::-moz-progress-bar {
-	background: green;
+	background: #464a4f;
 }
 
 /* For Chrome or Safari */
 .referenceScore-item progress::-webkit-progress-value {
-	background: green;
+	background: #464a4f;
 }
 
 /* For IE10 */
 .referenceScore-item progress {
-	background: green;
+	background: #ababab;
 }
 
 @-webkit-keyframes bar-fill {
