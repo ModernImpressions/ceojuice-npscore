@@ -79,10 +79,7 @@
 
 	chart = svg
 		.append("g")
-		.attr(
-			"transform",
-			`translate(${(width + margin.left) / 2}, ${(height + margin.top) / 2})`
-		);
+		.attr("transform", `translate(${width / 2}, ${height})`);
 
 	// build gauge bg
 	for (
