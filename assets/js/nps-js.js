@@ -58,7 +58,7 @@
 
 	height = width / 2;
 
-	radius = Math.min(width, height) / 2;
+	radius = Math.min(width, height);
 
 	percToDeg = function (perc) {
 		return perc * 360;
