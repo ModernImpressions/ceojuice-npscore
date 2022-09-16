@@ -45,23 +45,23 @@
 }
 
 .chart-color1 {
-	fill: #161918;
+	fill: #ff3b3a;
 }
 
 .chart-color2 {
-	fill: #a70a20;
+	fill: #ff654b;
 }
 
 .chart-color3 {
-	fill: #af4c0b;
+	fill: #ffc627;
 }
 
 .chart-color4 {
-	fill: #07705b;
+	fill: #89cf12;
 }
 
 .chart-color5 {
-	fill: #2b9509;
+	fill: #00b106;
 }
 
 .needle,
@@ -145,6 +145,21 @@ progress[role] {
 
 .referenceScore-item-3::-moz-progress-bar {
 	background: #ff6b6b;
+}
+
+/* For Firefox */
+.referenceScore-item progress::-moz-progress-bar {
+	background: green;
+}
+
+/* For Chrome or Safari */
+.referenceScore-item progress::-webkit-progress-value {
+	background: green;
+}
+
+/* For IE10 */
+.referenceScore-item progress {
+	background: green;
 }
 
 @-webkit-keyframes bar-fill {
