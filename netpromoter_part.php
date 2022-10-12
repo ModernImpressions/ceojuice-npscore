@@ -56,15 +56,15 @@ if ($readScoreJson === false) {
                     <script type="text/javascript">
                     var initVal = "<?= $ourScore ?>";
                     </script>
-                    <div class="chart-gauge">
-                        <div class="chart-gauge-label">
-                            <div class="chart-gauge-label-inner">
-                                <div class="chart-gauge-label-value">
-                                    <span class="chart-gauge-label-value-number"><?= $ourScore ?></span>
-                                </div>
-                                <div class="chart-gauge-label-text">Net Promoter Score</div>
+                    <div class="chart-gauge-label">
+                        <div class="chart-gauge-label-inner">
+                            <div class="chart-gauge-label-value">
+                                <span class="chart-gauge-label-value-number"><?= $ourScore ?></span>
                             </div>
+                            <div class="chart-gauge-label-text">Net Promoter Score</div>
                         </div>
+                    </div>
+                    <div class="chart-gauge">
                     </div>
                 </div>
                 <div class="row npsrow">
