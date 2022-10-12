@@ -47,7 +47,7 @@ if ($readScoreJson === false) {
         <div class="col-sm">
             <div class="row npsrow">
                 <div class="netpromoter scoreGauge">
-                    <div class="chart-gauge gauge-container">
+                    <div class="chart-gauge-container">
                         <?php foreach ($thisCompany as $company) {
                                 $ourScore = $company["companyScore"];
                                 $ourRank = $company["companyRank"];
