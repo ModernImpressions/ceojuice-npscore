@@ -47,24 +47,26 @@ if ($readScoreJson === false) {
         <div class="col-sm">
             <div class="row npsrow">
                 <div class="netpromoter scoreGauge">
-                    <?php foreach ($thisCompany as $company) {
-                            $ourScore = $company["companyScore"];
-                            $ourRank = $company["companyRank"];
-                            $ourCompany = $company["companyName"];
-                        }
-                        ?>
-                    <script type="text/javascript">
-                    var initVal = "<?= $ourScore ?>";
-                    </script>
-                    <div class="chart-gauge-label">
-                        <div class="chart-gauge-label-inner">
-                            <div class="chart-gauge-label-value">
-                                <span class="chart-gauge-label-value-number"><?= $ourScore ?></span>
+                    <div class="chart-gauge gauge-container">
+                        <?php foreach ($thisCompany as $company) {
+                                $ourScore = $company["companyScore"];
+                                $ourRank = $company["companyRank"];
+                                $ourCompany = $company["companyName"];
+                            }
+                            ?>
+                        <script type="text/javascript">
+                        var initVal = "<?= $ourScore ?>";
+                        </script>
+                        <div class="chart-gauge-label">
+                            <div class="chart-gauge-label-inner">
+                                <div class="chart-gauge-label-value">
+                                    <span class="chart-gauge-label-value-number"><?= $ourScore ?></span>
+                                </div>
+                                <div class="chart-gauge-label-text">Net Promoter Score</div>
                             </div>
-                            <div class="chart-gauge-label-text">Net Promoter Score</div>
                         </div>
-                    </div>
-                    <div class="chart-gauge">
+                        <div class="chart-gauge">
+                        </div>
                     </div>
                 </div>
                 <div class="row npsrow">
