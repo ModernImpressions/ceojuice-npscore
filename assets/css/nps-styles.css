@@ -37,8 +37,8 @@
 
 .chart-gauge-label {
 	z-index: 95;
-	top: 40%;
-	left: 0%;
+	top: 40% !important;
+	left: 0% !important;
 }
 
 .chart-gauge-label .chart-gauge-label-inner {
