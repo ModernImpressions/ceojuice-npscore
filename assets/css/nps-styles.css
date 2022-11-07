@@ -173,27 +173,51 @@ progress[role] {
 }
 
 .referenceScore-item.item-1 progress::-webkit-progress-value {
-	background: #ff9e2c;
+	background: rgb(0, 115, 166);
 }
 
 .referenceScore-item.item-1 progress::-moz-progress-bar {
-	background: #ff9e2c;
+	background: rgb(0, 115, 166);
 }
 
 .referenceScore-item.item-2 progress::-webkit-progress-value {
-	background: #4ecdc4;
+	background: #c7ddf3;
 }
 
 .referenceScore-item.item-2 progress::-moz-progress-bar {
-	background: #4ecdc4;
+	background: #c7ddf3;
 }
 
 .referenceScore-item.item-3 progress::-webkit-progress-value {
-	background: #ff6b6b;
+	background: #12395b;
 }
 
 .referenceScore-item.item-3 progress::-moz-progress-bar {
-	background: #ff6b6b;
+	background: #12395b;
+}
+
+.referenceScore-item.item-4 progress::-webkit-progress-value {
+	background: #ff9900;
+}
+
+.referenceScore-item.item-4 progress::-moz-progress-bar {
+	background: #ff9900;
+}
+
+.referenceScore-item.item-5 progress::-webkit-progress-value {
+	background: #e50914;
+}
+
+.referenceScore-item.item-5 progress::-moz-progress-bar {
+	background: #e50914;
+}
+
+.referenceScore-item.item-6 progress::-webkit-progress-value {
+	background: #da0530;
+}
+
+.referenceScore-item.item-6 progress::-moz-progress-bar {
+	background: #da0530;
 }
 
 @-webkit-keyframes bar-fill {
@@ -218,8 +242,8 @@ progress[role] {
 .npsaward {
 	display: inline-flex;
 	width: 100%;
-	max-width: 200px;
-	margin: 4%;
+	max-width: 150px;
+	margin: 2%;
 	padding: 0;
 	align-items: center;
 	justify-content: center;
