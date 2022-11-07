@@ -11,6 +11,38 @@
 	margin: 10px auto 20px auto;
 	height: 235px;
 	width: 100%;
+	overflow: visible;
+}
+
+.scoreGauge .svg {
+	overflow: visible;
+}
+
+.scoreGauge .chart-gauge-container {
+	position: relative;
+	width: 400px;
+	height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.scoreGauge .chart-gauge-container .chart-gauge,
+.scoreGauge .chart-gauge-container .chart-gauge-label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.chart-gauge-label {
+	z-index: 95;
+	top: 40%;
+	left: 0%;
+}
+
+.chart-gauge-label .chart-gauge-label-inner {
+	text-align: center;
 }
 
 .output {
