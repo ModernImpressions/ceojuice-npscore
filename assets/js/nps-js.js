@@ -82,7 +82,7 @@
 		.attr(
 			"transform",
 			`translate(${(width + margin.left + margin.right) / 2}, ${
-				height + margin.top + margin.bottom
+				height + margin.top + margin.bottom - 20
 			})`
 		);
 
