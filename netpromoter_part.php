@@ -82,33 +82,33 @@ if ($readScoreJson === false) {
                     </div>
                 </div>
             </div>
-            <div class="col-sm">
-                <div class="netpromoter referenceScores">
-                    <ul class="referenceScore-list">
-                        <li class="referenceScore-item us">
-                            <span class="referenceCompanyName ourcompany"><?php echo $company["companyName"] ?></span>
-                            <progress class="referenceCompanyScore ourscore" min="-100" max="100"
-                                value="<?php echo $company["companyScore"] ?>">
-                                <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
-                            </progress>
-                            <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
-                        </li>
-                        <?php $referenceCounter = 1;
-                            foreach ($referenceCompanies as $company) { ?>
-                        <li class="referenceScore-item <?php if ($referenceCounter > 0) {
-                                                                    echo "item-" . $referenceCounter;
-                                                                } ?>">
-                            <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
-                            <progress class="referenceCompanyScore" min="-100" max="100"
-                                value="<?php echo $company["companyScore"] ?>">
-                                <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
-                            </progress>
-                            <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
-                        </li>
-                        <?php $referenceCounter++; ?>
-                        <?php } ?>
-                    </ul>
-                </div>
+        </div>
+        <div class="col-sm">
+            <div class="netpromoter referenceScores">
+                <ul class="referenceScore-list">
+                    <li class="referenceScore-item us">
+                        <span class="referenceCompanyName ourcompany"><?php echo $company["companyName"] ?></span>
+                        <progress class="referenceCompanyScore ourscore" min="-100" max="100"
+                            value="<?php echo $company["companyScore"] ?>">
+                            <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
+                        </progress>
+                        <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
+                    </li>
+                    <?php $referenceCounter = 1;
+                        foreach ($referenceCompanies as $company) { ?>
+                    <li class="referenceScore-item <?php if ($referenceCounter > 0) {
+                                                                echo "item-" . $referenceCounter;
+                                                            } ?>">
+                        <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
+                        <progress class="referenceCompanyScore" min="-100" max="100"
+                            value="<?php echo $company["companyScore"] ?>">
+                            <span><span><strong><?php echo $company["companyScore"] ?></strong></span><span><?php echo $company["companyScore"] ?></span></span>
+                        </progress>
+                        <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
+                    </li>
+                    <?php $referenceCounter++; ?>
+                    <?php } ?>
+                </ul>
             </div>
         </div>
     </div>
