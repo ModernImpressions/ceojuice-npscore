@@ -12,6 +12,7 @@
 	height: 235px;
 	width: 100%;
 	overflow: visible;
+	z-index: 96;
 }
 
 .scoreGauge .svg {
@@ -43,6 +44,11 @@
 
 .chart-gauge-label .chart-gauge-label-inner {
 	text-align: center;
+}
+
+.chart-gauge-label-value-number {
+	font-size: 3em;
+	font-weight: bold;
 }
 
 .output {
