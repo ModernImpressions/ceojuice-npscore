@@ -10,6 +10,8 @@ $readAwardsData = @file_get_contents($buildAwardsURL, true);
 $readScoreJson = @file_get_contents($buildScoreURL, true);
 if ($readScoreJson === false) {
     //There is an error opening the file
+    $message = "There was an error connecting to the CEOJuice API";
+    $apiFail = true;
 } else {
     //Results are received from the CEOJuice API
     //Decode JSON
@@ -44,16 +46,24 @@ if ($readScoreJson === false) {
 ?>
 <div class="container">
     <div class="row">
+        <!-- show the score section if the api call was successful, and a message if failed -->
+        <?php if ($apiFail == true) { ?>
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert">
+                <strong>Oh snap!</strong> <?php echo $message; ?>
+            </div>
+        </div>
+        <?php } else { ?>
         <div class="col-sm">
             <div class="row npsrow">
                 <div class="netpromoter scoreGauge">
                     <div class="chart-gauge-container">
                         <?php foreach ($thisCompany as $company) {
-                                $ourScore = $company["companyScore"];
-                                $ourRank = $company["companyRank"];
-                                $ourCompany = $company["companyName"];
-                            }
-                            ?>
+                                    $ourScore = $company["companyScore"];
+                                    $ourRank = $company["companyRank"];
+                                    $ourCompany = $company["companyName"];
+                                }
+                                ?>
                         <script type="text/javascript">
                         var initVal = "<?= $ourScore ?>";
                         </script>
@@ -72,11 +82,11 @@ if ($readScoreJson === false) {
                 <div class="row npsrow">
                     <div class="netpromoter npsawards">
                         <?php if ($readAwardsData != false) {
-                                $processedAwardsData = str_replace('<link href="/ZCJ_BSCustomClasses.css" rel="stylesheet">', "", $readAwardsData);
-                                $processedAwardsData = str_replace('/ZCJ_BSCustomClasses.css', "", $readAwardsData);
-                                $processedAwardsData = str_replace('style="width:0px"', "", $processedAwardsData);
-                                $processedAwardsData = str_replace('zcj-img-fluid', "npsaward img", $processedAwardsData);
-                                $npsAwardsData = $processedAwardsData; ?>
+                                    $processedAwardsData = str_replace('<link href="/ZCJ_BSCustomClasses.css" rel="stylesheet">', "", $readAwardsData);
+                                    $processedAwardsData = str_replace('/ZCJ_BSCustomClasses.css', "", $readAwardsData);
+                                    $processedAwardsData = str_replace('style="width:0px"', "", $processedAwardsData);
+                                    $processedAwardsData = str_replace('zcj-img-fluid', "npsaward img", $processedAwardsData);
+                                    $npsAwardsData = $processedAwardsData; ?>
                         <?php echo $npsAwardsData; ?>
                         <?php } ?>
                     </div>
@@ -95,10 +105,10 @@ if ($readScoreJson === false) {
                         <span class="referenceCompany score"><?php echo $company["companyScore"] ?></span>
                     </li>
                     <?php $referenceCounter = 1;
-                        foreach ($referenceCompanies as $company) { ?>
+                            foreach ($referenceCompanies as $company) { ?>
                     <li class="referenceScore-item <?php if ($referenceCounter > 0) {
-                                                                echo "item-" . $referenceCounter;
-                                                            } ?>">
+                                                                    echo "item-" . $referenceCounter;
+                                                                } ?>">
                         <span class="referenceCompanyName"><?php echo $company["companyName"] ?></span>
                         <progress class="referenceCompanyScore" min="-100" max="100"
                             value="<?php echo $company["companyScore"] ?>">
@@ -111,6 +121,7 @@ if ($readScoreJson === false) {
                 </ul>
             </div>
         </div>
+        <?php } ?>
     </div>
     <?php }
 wp_enqueue_script('d3-js', 'https://d3js.org/d3.v3.min.js', array('jquery'), '3.0.0', false); //load d3.js
