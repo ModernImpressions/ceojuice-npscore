@@ -27,6 +27,8 @@
 		startPadRad,
 		svg,
 		totalPercent,
+		elements,
+		windowHeight,
 		width;
 
 	percent = initVal / 100;
@@ -110,6 +112,10 @@
 			.attr("d", arc);
 	}
 
+	function init() {
+		elements = document.querySelectorAll(".scoreGauge");
+		windowHeight = window.innerHeight;
+	}
 	Needle = class Needle {
 		constructor(len, radius1) {
 			this.len = len;
@@ -173,31 +179,26 @@
 	needle.drawOn(chart, 0);
 
 	function checkPosition() {
-		var current = $(window).scrollTop();
-		var height = $(".scoreGauge").height();
-		var offset = $(".scoreGauge").offset().top;
-		var bottom = offset + height;
-		if (current >= offset && current <= bottom) {
-			// in the viewport
-			$(".scoreGauge").addClass("in-view");
-		} else {
-			// not in the viewport
-			$(".scoreGauge").removeClass("in-view");
+		for (var i = 0; i < elements.length; i++) {
+			var element = elements[i];
+			var positionFromTop = elements[i].getBoundingClientRect().top;
+
+			if (positionFromTop - windowHeight <= 0) {
+				element.classList.add("fade-in-element");
+				element.classList.add("in-view");
+				element.classList.remove("hidden");
+
+				// animate the needle
+				needle.animateOn(chart, percent);
+			}
 		}
 	}
 
 	window.addEventListener("scroll", checkPosition);
+	window.addEventListener("resize", init);
 
+	init();
 	checkPosition();
-
-	// if scoreGauge is in view, animate the needle
-	function animateNeedle() {
-		if ($(".scoreGauge").hasClass("in-view")) {
-			needle.animateOn(chart, percent);
-		}
-	}
-
-	window.addEventListener("scroll", animateNeedle);
 }.call(this));
 
 //# sourceURL=coffeescript
