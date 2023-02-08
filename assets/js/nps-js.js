@@ -166,6 +166,13 @@
 	needle.drawOn(chart, 0);
 
 	needle.animateOn(chart, percent);
+
+	// find the netpromoter scoreGauge element and set the height attribute to the height variable
+	// this is to make the gauge responsive
+	$(".netpromoter .scoreGauge").attr(
+		"height",
+		height + margin.top + margin.bottom
+	);
 }.call(this));
 
 //# sourceURL=coffeescript
