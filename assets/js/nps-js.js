@@ -74,8 +74,8 @@
 
 	svg = el
 		.append("svg")
-		.attr("width", width + margin.left + margin.right)
-		.attr("height", height + margin.top + margin.bottom)
+		.attr("width", "100%")
+		.attr("height", "100%")
 		.attr("preserveAspectRatio", "xMinYMin meet");
 
 	chart = svg

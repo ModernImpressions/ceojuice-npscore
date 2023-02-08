@@ -83,7 +83,7 @@
 	width: 100%;
 	padding-bottom: 100%;
 	vertical-align: middle;
-	overflow: hidden;
+	overflow: visible;
 }
 
 .chart-gauge svg {
