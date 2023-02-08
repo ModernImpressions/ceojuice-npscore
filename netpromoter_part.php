@@ -79,17 +79,17 @@ if ($readScoreJson === false) {
                         </div>
                     </div>
                 </div>
-                <div class="row npsrow">
-                    <div class="netpromoter npsawards">
-                        <?php if ($readAwardsData != false) {
-                                    $processedAwardsData = str_replace('<link href="/ZCJ_BSCustomClasses.css" rel="stylesheet">', "", $readAwardsData);
-                                    $processedAwardsData = str_replace('/ZCJ_BSCustomClasses.css', "", $readAwardsData);
-                                    $processedAwardsData = str_replace('style="width:0px"', "", $processedAwardsData);
-                                    $processedAwardsData = str_replace('zcj-img-fluid', "npsaward img", $processedAwardsData);
-                                    $npsAwardsData = $processedAwardsData; ?>
-                        <?php echo $npsAwardsData; ?>
-                        <?php } ?>
-                    </div>
+            </div>
+            <div class="row npsrow">
+                <div class="netpromoter npsawards">
+                    <?php if ($readAwardsData != false) {
+                                $processedAwardsData = str_replace('<link href="/ZCJ_BSCustomClasses.css" rel="stylesheet">', "", $readAwardsData);
+                                $processedAwardsData = str_replace('/ZCJ_BSCustomClasses.css', "", $readAwardsData);
+                                $processedAwardsData = str_replace('style="width:0px"', "", $processedAwardsData);
+                                $processedAwardsData = str_replace('zcj-img-fluid', "npsaward img", $processedAwardsData);
+                                $npsAwardsData = $processedAwardsData; ?>
+                    <?php echo $npsAwardsData; ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>
