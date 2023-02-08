@@ -135,7 +135,7 @@
 				.transition()
 				.delay(500)
 				.ease("elastic")
-				.duration(3000)
+				.duration(6000)
 				.selectAll(".needle")
 				.tween("progress", function () {
 					return function (percentOfPercent) {
@@ -161,18 +161,43 @@
 		}
 	};
 
-	needle = new Needle(180, 10);
-
-	needle.drawOn(chart, 0);
-
-	needle.animateOn(chart, percent);
-
 	// find the netpromoter scoreGauge element and set the height attribute to the height variable
 	// this is to make the gauge responsive
 	$(".scoreGauge").attr(
 		"style",
 		`height: ${height + margin.top + margin.bottom}px;`
 	);
+
+	needle = new Needle(width / 2 - 10, 10);
+
+	needle.drawOn(chart, 0);
+
+	function checkPosition() {
+		var current = $(window).scrollTop();
+		var height = $(".scoreGauge").height();
+		var offset = $(".scoreGauge").offset().top;
+		var bottom = offset + height;
+		if (current >= offset && current <= bottom) {
+			// in the viewport
+			$(".scoreGauge").addClass("in-view");
+		} else {
+			// not in the viewport
+			$(".scoreGauge").removeClass("in-view");
+		}
+	}
+
+	window.addEventListener("scroll", checkPosition);
+
+	checkPosition();
+
+	// if scoreGauge is in view, animate the needle
+	function animateNeedle() {
+		if ($(".scoreGauge").hasClass("in-view")) {
+			needle.animateOn(chart, percent);
+		}
+	}
+
+	window.addEventListener("scroll", animateNeedle);
 }.call(this));
 
 //# sourceURL=coffeescript
