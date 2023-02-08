@@ -78,8 +78,20 @@
 /*SVG*/
 
 .chart-gauge {
-	width: 400px;
-	margin: auto;
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.chart-gauge svg {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: visible;
 }
 
 .chart-color1 {
