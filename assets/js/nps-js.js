@@ -183,13 +183,18 @@
 			var element = elements[i];
 			var positionFromTop = elements[i].getBoundingClientRect().top;
 
-			if (positionFromTop - windowHeight <= 0) {
-				element.classList.add("fade-in-element");
-				element.classList.add("in-view");
-				element.classList.remove("hidden");
+			// check if the animation has already been triggered
+			if (element.classList.contains("played")) {
+			} else {
+				if (positionFromTop - windowHeight <= 0) {
+					element.classList.add("fade-in-element");
+					element.classList.add("in-view");
+					element.classList.remove("hidden");
 
-				// animate the needle
-				needle.animateOn(chart, percent);
+					// animate the needle
+					needle.animateOn(chart, percent);
+					element.classList.add("played");
+				}
 			}
 		}
 	}
