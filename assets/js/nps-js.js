@@ -169,7 +169,10 @@
 
 	// find the netpromoter scoreGauge element and set the height attribute to the height variable
 	// this is to make the gauge responsive
-	$(".scoreGauge").attr("height", height + margin.top + margin.bottom);
+	$(".scoreGauge").attr(
+		"style",
+		`height: ${height + margin.top + margin.bottom}px;`
+	);
 }.call(this));
 
 //# sourceURL=coffeescript
