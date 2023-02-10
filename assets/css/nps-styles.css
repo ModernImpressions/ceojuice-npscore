@@ -273,3 +273,10 @@ progress[role] {
 .npsaward img {
 	margin: 0px;
 }
+
+.mobile-flex-basis-fix {
+	flex-basis: 100%;
+}
+
+.awards-gauge-col {
+}
