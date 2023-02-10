@@ -141,7 +141,7 @@
 			return el
 				.transition()
 				.delay(500)
-				.ease("elastic")
+				.ease("bounce")
 				.duration(6000)
 				.selectAll(".needle")
 				.tween("progress", function () {
