@@ -1,4 +1,5 @@
 /** @format */
+/*jshint esversion: 6 */
 
 (function () {
 	var Needle,
@@ -17,13 +18,13 @@
 		needle,
 		numSections,
 		padRad,
-		percToDeg,
-		percToRad,
+		percentToDeg,
+		percentToRad,
 		percent,
 		radius,
 		ref,
 		sectionIndx,
-		sectionPerc,
+		sectionPercent,
 		startPadRad,
 		svg,
 		totalPercent,
@@ -38,7 +39,7 @@
 	numSections = 5;
 
 	// / 2 for HALF circle
-	sectionPerc = 1 / numSections / 2;
+	sectionPercent = 1 / numSections / 2;
 
 	padRad = 0.05;
 
@@ -62,12 +63,12 @@
 
 	radius = Math.min(width, height);
 
-	percToDeg = function (perc) {
-		return perc * 360;
+	percentToDeg = function (percent) {
+		return percent * 360;
 	};
 
-	percToRad = function (perc) {
-		return degToRad(percToDeg(perc));
+	percentToRad = function (percent) {
+		return degToRad(percentToDeg(percent));
 	};
 
 	degToRad = function (deg) {
@@ -95,9 +96,9 @@
 		1 <= ref ? i <= ref : i >= ref;
 		sectionIndx = 1 <= ref ? ++i : --i
 	) {
-		arcStartRad = percToRad(totalPercent);
-		arcEndRad = arcStartRad + percToRad(sectionPerc);
-		totalPercent += sectionPerc;
+		arcStartRad = percentToRad(totalPercent);
+		arcEndRad = arcStartRad + percentToRad(sectionPercent);
+		totalPercent += sectionPercent;
 		startPadRad = sectionIndx === 0 ? 0 : padRad / 2;
 		endPadRad = sectionIndx === numSections ? 0 : padRad / 2;
 		arc = d3.svg
@@ -122,7 +123,7 @@
 			this.radius = radius1;
 		}
 
-		drawOn(el, perc) {
+		drawOn(el, percent) {
 			el.append("circle")
 				.attr("class", "needle-center")
 				.attr("cx", 0)
@@ -131,10 +132,10 @@
 			return el
 				.append("path")
 				.attr("class", "needle")
-				.attr("d", this.mkCmd(perc));
+				.attr("d", this.mkCmd(percent));
 		}
 
-		animateOn(el, perc) {
+		animateOn(el, percent) {
 			var self;
 			self = this;
 			return el
@@ -146,15 +147,15 @@
 				.tween("progress", function () {
 					return function (percentOfPercent) {
 						var progress;
-						progress = percentOfPercent * perc;
+						progress = percentOfPercent * percent;
 						return d3.select(this).attr("d", self.mkCmd(progress));
 					};
 				});
 		}
 
-		mkCmd(perc) {
+		mkCmd(percent) {
 			var centerX, centerY, leftX, leftY, rightX, rightY, thetaRad, topX, topY;
-			thetaRad = percToRad(perc / 2); // half circle
+			thetaRad = percentToRad(percent / 2); // half circle
 			centerX = 0;
 			centerY = 0;
 			topX = centerX - this.len * Math.cos(thetaRad);
