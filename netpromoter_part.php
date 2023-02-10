@@ -54,7 +54,7 @@ if ($readScoreJson === false) {
             </div>
         </div>
         <?php } else { ?>
-        <div class="col-sm">
+        <div class="col-sm awards-gauge-col mobile-flex-basis-fix">
             <div class="row npsrow">
                 <div class="netpromoter scoreGauge">
                     <div class="chart-gauge-container">
@@ -93,7 +93,7 @@ if ($readScoreJson === false) {
                 </div>
             </div>
         </div>
-        <div class="col-sm">
+        <div class="col-sm mobile-flex-basis-fix">
             <div class="netpromoter referenceScores">
                 <ul class="referenceScore-list">
                     <li class="referenceScore-item us">
