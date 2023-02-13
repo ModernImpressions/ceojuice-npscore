@@ -203,9 +203,20 @@
 	window.addEventListener("resize", init);
 	// if the window is resized, re-calculate the height and width variables and re-draw the needle
 	window.addEventListener("resize", Needle.drawOn(chart, 0));
-
 	init();
 	checkPosition();
+	// if the window is resized, or zoomed, re-calculate the height and width variables and re-draw the needle
+	window.addEventListener("resize", function () {
+		$(".scoreGauge").attr(
+			"style",
+			`height: ${height + margin.top + margin.bottom}px;`
+		);
+		width = el[0][0].offsetWidth - margin.left - margin.right;
+		height = width / 2;
+		radius = Math.min(width, height);
+		needle = new Needle(width / 2 - 10, 10);
+		needle.drawOn(chart, 0);
+	});
 }.call(this));
 
 //# sourceURL=coffeescript
