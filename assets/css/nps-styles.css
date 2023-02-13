@@ -270,6 +270,12 @@ progress[role] {
 	margin-right: auto;
 }
 
+@media (max-width: 1200px) {
+	.npsaward {
+		max-width: 125px;
+	}
+}
+
 .npsaward img {
 	margin: 0px;
 }
@@ -284,7 +290,4 @@ progress[role] {
 		flex-basis: 100%;
 		max-width: 100%;
 	}
-}
-
-.awards-gauge-col {
 }
