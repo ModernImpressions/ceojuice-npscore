@@ -199,9 +199,10 @@
 			}
 		}
 	}
-
 	window.addEventListener("scroll", checkPosition);
 	window.addEventListener("resize", init);
+	// if the window is resized, re-calculate the height and width variables and re-draw the needle
+	window.addEventListener("resize", Needle.drawOn(chart, 0));
 
 	init();
 	checkPosition();
