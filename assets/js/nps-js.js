@@ -207,6 +207,7 @@
 	checkPosition();
 	// if the window is resized, or zoomed, re-calculate the height and width variables and re-draw the needle
 	window.addEventListener("resize", function () {
+		init();
 		$(".scoreGauge").attr(
 			"style",
 			`height: ${height + margin.top + margin.bottom}px;`
@@ -216,6 +217,7 @@
 		radius = Math.min(width, height);
 		needle = new Needle(width / 2 - 10, 10);
 		needle.drawOn(chart, 0);
+		checkPosition();
 	});
 }.call(this));
 
