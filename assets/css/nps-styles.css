@@ -279,7 +279,7 @@ progress[role] {
 	max-width: 50%;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 1200px) {
 	.mobile-flex-basis-fix {
 		flex-basis: 100%;
 		max-width: 100%;
